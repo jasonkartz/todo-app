@@ -3,7 +3,6 @@ import { nanoid } from "nanoid";
 import TodoItem from "./Components/TodoItem";
 import { CgAddR } from "react-icons/cg";
 
-
 export default function App() {
   const [newTodo, setNewTodo] = useState("");
   const [todoList, setTodoList] = useState([
@@ -67,22 +66,21 @@ export default function App() {
   return (
     <div className="flex justify-center pt-5">
       <section>
-        <form onSubmit={addTodo}>
+        <form className="flex justify-center mb-2" onSubmit={addTodo}>
           <input
-            className="mr-2"
+            className="mr-1 border-b-4 border-black-600 focus:outline-none bg-amber-50"
             type="text"
             value={newTodo}
             onInput={(e) => setNewTodo(e.target.value)}
-            placeholder="New ToDo"
+            placeholder="New To Do"
           ></input>
-          <button>
-          <CgAddR />
+          <button className="text-xl">
+            <CgAddR />
           </button>
         </form>
 
-        <ul>{todos}</ul>
+        <ul className="justify-self-stretch bg-amber-50">{todos}</ul>
       </section>
     </div>
   );
 }
-
