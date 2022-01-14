@@ -3,18 +3,17 @@ import { CgTrash } from "react-icons/cg";
 
 export default function TodoItem(props) {
   return (
-    <li className="flex justify-between">
+    <li className={`flex justify-between ${props.completed && "line-through bg-stone-100"} border-b border-black-600`}>
       <div className="flex items-center gap-x-1.5 w-full">
         <input
           type="checkbox"
-          className="checked:bg-gray-300"
+          className="accent-amber-200"
           id={props.id}
           name={props.name}
           defaultChecked={props.completed}
           onChange={props.handleCompleted}
         ></input>
         <label
-          className={`${props.completed && "line-through"} w-full border-b border-black-600`}
           htmlFor={props.todoItem}
         >
           {props.todoItem}

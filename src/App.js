@@ -64,11 +64,14 @@ export default function App() {
     setNewTodo("");
   };
   return (
-    <div className="flex justify-center pt-5">
+    <div className="m-auto mt-5 w-1/3 bg-amber-50 drop-shadow-lg">
       <section>
-        <form className="flex justify-center mb-2" onSubmit={addTodo}>
+        <form
+          className="flex justify-center mb-2 bg-transparent border-b border-slate-600"
+          onSubmit={addTodo}
+        >
           <input
-            className="mr-1 border-b-4 border-black-600 focus:outline-none bg-amber-50"
+            className="mr-1 focus:outline-none bg-transparent w-full"
             type="text"
             value={newTodo}
             onInput={(e) => setNewTodo(e.target.value)}
@@ -79,7 +82,7 @@ export default function App() {
           </button>
         </form>
 
-        <ul className="justify-self-stretch bg-amber-50">{todos}</ul>
+        <ul className="bg-amber-50">{todos}</ul>
       </section>
     </div>
   );
