@@ -25,11 +25,8 @@ export default function TodoItem(props) {
         <label htmlFor={props.todoItem} className="cursor-move">{props.todoItem}</label>
       </div>
 
-      <button className="text-xl" onClick={props.deleteBtn}>
+      <button className="text-xl active:scale-95" onClick={props.deleteBtn}>
         <GoTrashcan />
-      </button>
-      <button className="text-xl cursor-move">
-        <GoGrabber />
       </button>
     </li>
   );

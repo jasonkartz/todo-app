@@ -55,19 +55,25 @@ export default function App() {
   };
 
   function handleDragStart(index) {
-    setdragIndex(index)
-    
-    
+    setdragIndex(index);
   }
-  
-  
+
   function handleDragEnter(e, index) {
-    const newList = [...todoList]
-    const item = newList[dragIndex]
-    newList.splice(dragIndex, 1)
-    newList.splice(index, 0, item)
-    setdragIndex(index)
-    setTodoList(newList)
+    const newList = [...todoList];
+    const item = newList[dragIndex];
+    newList.splice(dragIndex, 1);
+    newList.splice(index, 0, item);
+    setdragIndex(index);
+    setTodoList(newList);
+  }
+  function handleDragOver(e) {
+    e.preventDefault();
+  }
+  function handleDragLeave(e) {
+    e.target.classList.add("hover:bg-stone-100");
+  }
+  function handleDrop(e) {
+    e.target.classList.add("hover:bg-stone-100");
   }
 
   const todos = todoList.map((data, index) => (
@@ -78,13 +84,15 @@ export default function App() {
       handleCompleted={() => handleCompleted(data)}
       deleteBtn={() => deleteTodo(data.id)}
       handleDragStart={() => handleDragStart(index)}
-      handleDragOver={(e) => e.preventDefault}
+      handleDragOver={(e) => handleDragOver(e)}
       handleDragEnter={(e) => handleDragEnter(e, index)}
+      handleDragLeave={(e) => handleDragLeave(e)}
+      handleDrop={(e) => handleDrop(e)}
     />
   ));
 
   return (
-    <div className="w-1/3 m-auto mt-5 bg-amber-50 drop-shadow-lg">
+    <div className="w-1/3 m-auto mt-5 bg-amber-50 drop-shadow-lg p-1.5">
       <form
         className="flex justify-center mb-2 bg-transparent border-b border-slate-600"
         onSubmit={addTodo}
@@ -96,7 +104,7 @@ export default function App() {
           onInput={(e) => setNewTodo(e.target.value)}
           placeholder="New To Do"
         ></input>
-        <button className="text-xl">
+        <button className="text-xl active:scale-95">
           <CgAddR />
         </button>
       </form>
