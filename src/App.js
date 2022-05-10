@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import TodoItem from "./Components/TodoItem";
-import { CgAddR } from "react-icons/cg";
 
 export default function App() {
   const [dragIndex, setdragIndex] = useState();
@@ -100,8 +99,8 @@ export default function App() {
           onInput={(e) => setNewTodo(e.target.value)}
           placeholder="New To Do"
         ></input>
-        <button className="add-btn">
-          <CgAddR />
+        <button>
+        <i className="ri-add-box-line"></i>
         </button>
       </form>
       <ul>{todos}</ul>

@@ -3,31 +3,34 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply px-5 bg-white text-slate-900;
+    }
     main {
-        @apply w-1/3 m-auto mt-5 bg-amber-50 drop-shadow-lg p-1.5;
+        @apply w-full max-w-2xl p-3 mx-auto mt-5 text-lg rounded-lg bg-blue-50 drop-shadow-lg;
     }
     form {
-        @apply flex justify-center mb-2 bg-transparent border-b border-slate-600;
-    }
-    ul {
-        @apply bg-amber-50;
+        @apply flex justify-center mb-4 bg-transparent border-b border-slate-900/75;
     }
     li {
-        @apply flex justify-between gap-x-1.5 border-b border-black cursor-move hover:bg-stone-100;
+        @apply flex justify-center gap-1.5 border-b border-slate-900/75 cursor-move bg-blue-50 hover:bg-blue-100;
     }
     [type="text"] {
         @apply w-full mr-1 bg-transparent focus:outline-none;
     }
+    [type="checkbox"] {
+        @apply accent-blue-300;
+    }
+    label {
+        @apply cursor-move;
+    }
+    button {
+        @apply text-2xl opacity-80 active:scale-95 hover:opacity-100;
+    }
 }
 
 @layer components {
-    .check-box-conatiner {
-        @apply flex items-center gap-x-1.5 w-full;
-    }
-    .trash-btn {
-        @apply text-xl active:scale-95;
-    }
-    .add-btn {
-        @apply text-xl active:scale-95;
+    .item-container {
+        @apply flex items-center gap-1.5 w-full;
     }
 }

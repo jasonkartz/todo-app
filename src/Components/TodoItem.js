@@ -1,32 +1,36 @@
 import React from "react";
-import { GoTrashcan } from "react-icons/go";
 
-export default function TodoItem(props) {
+export default function TodoItem({
+  todoItem,
+  completed,
+  handleCompleted,
+  handleDragStart,
+  handleDragEnter,
+  handleDragLeave,
+  handleDrop,
+  handleDragOver,
+  deleteBtn,
+}) {
   return (
     <li
-      className={`list-item ${
-        props.completed && "line-through"
-      }`}
       draggable
-      onDragStart={props.handleDragStart}
-      onDragEnter={props.handleDragEnter}
-      onDragLeave={props.handleDragLeave}
-      onDrop={props.handleDrop}
-      onDragOver={props.handleDragOver}
-
+      onDragStart={handleDragStart}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
     >
-      <div className="check-box-conatiner">
+      <div className={`item-container ${completed && "line-through"}`}>
         <input
           type="checkbox"
-          className="accent-stone-300"
-          defaultChecked={props.completed}
-          onChange={props.handleCompleted}
+          defaultChecked={completed}
+          onChange={handleCompleted}
         ></input>
-        <label htmlFor={props.todoItem} className="cursor-move">{props.todoItem}</label>
+        <label htmlFor={todoItem}>{todoItem}</label>
       </div>
 
-      <button className="trash-btn" onClick={props.deleteBtn}>
-        <GoTrashcan />
+      <button onClick={deleteBtn}>
+        <i className="ri-delete-bin-2-line"></i>
       </button>
     </li>
   );
