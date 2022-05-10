@@ -92,23 +92,19 @@ export default function App() {
   ));
 
   return (
-    <div className="w-1/3 m-auto mt-5 bg-amber-50 drop-shadow-lg p-1.5">
-      <form
-        className="flex justify-center mb-2 bg-transparent border-b border-slate-600"
-        onSubmit={addTodo}
-      >
+    <main>
+      <form onSubmit={addTodo}>
         <input
-          className="w-full mr-1 bg-transparent focus:outline-none"
           type="text"
           value={newTodo}
           onInput={(e) => setNewTodo(e.target.value)}
           placeholder="New To Do"
         ></input>
-        <button className="text-xl active:scale-95">
+        <button className="add-btn">
           <CgAddR />
         </button>
       </form>
-      <ul className="bg-amber-50">{todos}</ul>
-    </div>
+      <ul>{todos}</ul>
+    </main>
   );
 }
